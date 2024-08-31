@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Sustainable Fertilizer Usage Optimizer"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Crop Type Dropdown -->
+    <TextView
+        android:id="@+id/cropTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Crop Type:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <Spinner
+        android:id="@+id/cropTypeSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cropTypeLabel" />
+
+    <!-- Soil Type Dropdown -->
+    <TextView
+        android:id="@+id/soilTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Soil Type:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cropTypeSpinner" />
+
+    <Spinner
+        android:id="@+id/soilTypeSpinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/soilTypeLabel" />
+
+    <!-- Land Size Input with Tooltip -->
+    <EditText
+        android:id="@+id/landSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Land Size (in acres)"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/soilTypeSpinner" />
+
+    <TextView
+        android:id="@+id/landSizeTooltip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input the total area of land you wish to cultivate."
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/landSize" />
+
+    <!-- Expected Yield Input -->
+    <EditText
+        android:id="@+id/expectedYield"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Expected Yield (in kg)"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/landSizeTooltip" />
+
+    <!-- Organic Carbon Input with Tooltip -->
+    <EditText
+        android:id="@+id/organicCarbon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter Organic Carbon (%)"
+        android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/expectedYield" />
+
+    <TextView
+        android:id="@+id/organicCarbonTooltip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input the percentage of organic carbon in your soil."
+        android:textColor="@android:color/darker_gray"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/organicCarbon" />
+
+    <!-- Fertilizer Recommendation Button -->
+    <Button
+        android:id="@+id/btnRecommendFertilizer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recommend Fertilizer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/organicCarbonTooltip" />
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnRecommendFertilizer" />
+
+    <!-- Fertilizer Recommendation Output -->
+    <TextView
+        android:id="@+id/fertilizerRecommendation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Fertilizer Recommendation"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBar" />
+
+    <!-- PPM Calculation Button -->
+    <Button
+        android:id="@+id/btnCalculatePPM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Calculate PPM Solution"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fertilizerRecommendation" />
+
+    <!-- PPM Calculation Output -->
+    <TextView
+        android:id="@+id/ppmResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="PPM Solution Result"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnCalculatePPM" />
+</androidx.constraintlayout.widget.ConstraintLayout>
